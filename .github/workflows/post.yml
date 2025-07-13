@@ -1,19 +1,11 @@
-name: New Post Trigger
+name: New Post Update
 on:
   push:
     branches: [main]
 
 jobs:
-  trigger-build:
+  notify:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read # Needed to fetch the workflow
-      actions: write # Required to trigger workflows in other repos
     steps:
-      - name: Trigger build in raitucarp.github.io
-        run: |
-          curl -X POST \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/raitucarp/raitucarp.github.io/actions/workflows/nextjs.yml/dispatches" \
-            -d '{"ref":"main", "inputs": {"custom_message": "Triggered by push to posts"}}'
+      - name: Record push event
+        run: echo "New content pushed to posts repository"
