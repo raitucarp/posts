@@ -4,6 +4,11 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: read
+  pages: write # Required by the called workflow
+  id-token: write # Required by the called workflow
+
 jobs:
   call-external-workflow:
     uses: raitucarp/raitucarp.github.io/.github/workflows/nextjs.yml@main
