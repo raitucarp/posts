@@ -4,8 +4,5 @@ on:
     branches: [main]
 
 jobs:
-  notify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Record push event
-        run: echo "New content pushed to posts repository"
+  trigger-b:
+    uses: raitucarp/raitucarp.github.io/.github/workflows/nextjs.yml@main
