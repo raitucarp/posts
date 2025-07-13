@@ -1,17 +1,19 @@
-name: Trigger raitucarp.github.io Build
+name: New Post Trigger
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-permissions:
-  contents: read
-  pages: write # Required by the called workflow
-  id-token: write # Required by the called workflow
+    branches: [main]
 
 jobs:
-  call-external-workflow:
-    uses: raitucarp/raitucarp.github.io/.github/workflows/nextjs.yml@main
-    with:
-      custom_message: "Triggered by ${{ github.repository }}"
-    secrets: inherit
+  trigger-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # Needed to fetch the workflow
+      actions: write # Required to trigger workflows in other repos
+    steps:
+      - name: Trigger build in raitucarp.github.io
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/raitucarp/raitucarp.github.io/actions/workflows/nextjs.yml/dispatches" \
+            -d '{"ref":"main", "inputs": {"custom_message": "Triggered by push to posts"}}'
