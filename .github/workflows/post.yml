@@ -1,0 +1,12 @@
+name: Trigger raitucarp.github.io Build
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+jobs:
+  call-external-workflow:
+    uses: raitucarp/raitucarp.github.io/.github/workflows/nextjs.yml@main
+    with:
+      custom_message: "Triggered by ${{ github.repository }}"
+    secrets: inherit
