@@ -10,7 +10,7 @@ Today, I made first-wave migrations from Medium. And that's means that I no long
 
 With this decision I set my soul free from Medium. Next step is to put some deprecated messages to all my stories. However, the migration still vendor-locked to Github. To resolve that issue, I am planning to create static blog engine for static page with local admin dashboard. But, that's not my end-goal, though.
 
-My ultimate dream (end goal) related to logging thought, is everyone can create blog or micro-thought and free to host everywhere (including IPFS or any static page hosting), but with local-first administration interface (desktop-app) companion. The idea is similar to Hugo but different workflows. My main problem is a free time to create such side project.
+My ultimate dream (end-goal) related to logging thought, is everyone can create blog or micro-thought and free to host everywhere (including IPFS or any static page hosting), but with local-first administration interface (desktop-app) companion. The idea is similar to Hugo but different workflows. My main problem is a free time to create such side project.
 
 I'm jobless when writing this post. So only hope can save my life, hope that someday I can strip all my todos to be done state, and all my side projects show up in the Internet.
 
