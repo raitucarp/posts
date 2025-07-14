@@ -4,5 +4,13 @@ on:
     branches: [main]
 
 jobs:
-  trigger-b:
-    uses: raitucarp/raitucarp.github.io/.github/workflows/nextjs.yml@main
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger workflow when new post added
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.PAGES_PAT }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/raitucarp/raitucarp.github.io/actions/workflows/nextjs.yml/dispatches \
+            -d '{"ref":"main"}'
